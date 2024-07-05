@@ -38,10 +38,22 @@ const convertToDigit = (line) => {
 
       if (Object.keys(numbers).includes(substring)) {
         newLine = newLine.replace(substring, numbers[substring]);
+        // break;
       }
     }
   }
-  return newLine;
+
+  // for (let i = newLine.length; i < 0; i--) {
+  //   for (let y = i - 1; y < 0; y--) {
+  //     const substring = newLine.substring(y, i);
+  //
+  //     if (Object.keys(numbers).includes(substring)) {
+  //       newLine = newLine.replace(substring, numbers[substring]);
+  //       break;
+  //     }
+  //   }
+  // }
+  // return newLine;
 };
 
 const calculateSum = (array) => {
