@@ -50,11 +50,35 @@ function checkGame(game) {
   return setsMeetRequirements;
 }
 
-let idSum = 0;
-for (const game of gameObjects) {
-  if (checkGame(game)) {
-    idSum += game.id;
+// let idSum = 0;
+// for (const game of gameObjects) {
+//   if (checkGame(game)) {
+//     idSum += game.id;
+//   }
+// }
+
+function getMinimumPower(game) {
+  const minimum = {
+    green: 0,
+    red: 0,
+    blue: 0,
+  };
+
+  for (const set of game.sets) {
+    for (const color in set) {
+      if (set[color] > minimum[color]) {
+        minimum[color] = Number(set[color]);
+      }
+    }
   }
+
+  return (minimum.green * minimum.red * minimum.blue);
 }
 
-console.log(idSum);
+let minimumPower = 0;
+
+for (const game of gameObjects) {
+  minimumPower += getMinimumPower(game);
+}
+
+console.log(minimumPower)
